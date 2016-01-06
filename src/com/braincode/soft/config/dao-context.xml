@@ -15,4 +15,9 @@
 	<jee:jndi-lookup jndi-name="java:jboss/datasources/Springtest" id="dataSource"
 		expected-type="javax.sql.DataSource" lazy-init="true">
 	</jee:jndi-lookup>
+	
+	<!-- <jee:jndi-lookup jndi-name="jdbc/SpringTestTC" id="dataSource"
+		expected-type="javax.sql.DataSource" lazy-init="true">
+	</jee:jndi-lookup>
+	 -->
 </beans>

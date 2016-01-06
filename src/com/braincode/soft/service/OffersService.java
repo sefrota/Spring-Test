@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.braincode.soft.dao.Offer;
-import com.braincode.soft.dao.OffersDAO;
+import com.braincode.soft.dao.OffersDao;
 
 @Service("offersService")
 public class OffersService {
 	
-	private OffersDAO offersDao;
+	private OffersDao offersDao;
 	
 	@Autowired
-	public void setOffersDao(OffersDAO offersDao) {
+	public void setOffersDao(OffersDao offersDao) {
 		this.offersDao = offersDao;
 	}
 

@@ -7,8 +7,11 @@
 }
 
 input[type=text] {
-	width: 250px;
-	
+	width: 250px;	
+}
+
+input[type=password] {
+	width: 250px;	
 }
 
 textarea {
@@ -29,6 +32,10 @@ textarea {
 	font-size: small;
 	color: red;
 	margin-left: 10px;
+}
+
+p.error {
+	font-size: medium;
 }
 
 table.offers {
