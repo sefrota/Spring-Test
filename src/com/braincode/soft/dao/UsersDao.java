@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,9 @@ public class UsersDao {
 	private NamedParameterJdbcTemplate jdbc;
 	
 	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
 	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
@@ -31,7 +35,13 @@ public class UsersDao {
 	@Transactional
 	public boolean create(User user) {
 		
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(user);
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		
+		params.addValue("username", user.getUsername());
+		params.addValue("password", passwordEncoder.encode(user.getPassword()));
+		params.addValue("email", user.getEmail());
+		params.addValue("enabled", user.isEnabled());
+		params.addValue("authority", user.getAuthority());
 		
 		jdbc.update("insert into users (username, password, email, enabled) values (:username, :password, :email, :enabled)", params);
 		

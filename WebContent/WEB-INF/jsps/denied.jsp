@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Your account has been created
+The access has been denied!
 </body>
 </html>
