@@ -11,4 +11,5 @@ public class HomeController {
 		System.out.println("hello from the other side");
 		return "home";
 	}
+	
 }

@@ -34,6 +34,13 @@ textarea {
 	margin-left: 10px;
 }
 
+.valid {
+	font-size: small;
+	color: green;
+	margin-left: 10px;
+}
+
+
 p.error {
 	font-size: medium;
 }
@@ -42,3 +49,4 @@ table.offers {
 	padding: 20px;
 	border: 1px solid gray;
 }
+

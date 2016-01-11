@@ -10,14 +10,14 @@ import com.braincode.soft.validation.ValidEmail;
 
 public class User {
 	
-	@NotBlank(message="The username cannot be blank")
-	@Size(min=8, max=15, message="The username size must be between 8 and 15 characters long")
-	@Pattern(regexp="^\\w{8,}$", message="The username must contain only alphanumeric characters")
+	@NotBlank
+	@Size(min=8, max=15)
+	@Pattern(regexp="^\\w{8,}$")
 	private String username;
 	
 	@NotBlank
 	@Pattern(regexp="^\\S+$")
-	@Size(min=8, max=15, message="The password size must be between 8 and 15 characters long")
+	@Size(min=8, max=15)
 	private String password;
 	private String authority;
 	
