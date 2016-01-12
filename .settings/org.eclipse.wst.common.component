@@ -2,6 +2,7 @@
     <wb-module deploy-name="com.braincode.soft">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="java-output-path" value="/com.braincode.soft/target/classes"/>
         <property name="context-root" value="/"/>
     </wb-module>
