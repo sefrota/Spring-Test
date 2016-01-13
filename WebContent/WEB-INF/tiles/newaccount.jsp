@@ -12,6 +12,7 @@
 
 <table class="formtable">
 <tr><td class="label">Username: </td><td><sf:input class="control" path="username" name="username" type="text" /><br/><div class="error"><sf:errors path="username"></sf:errors></div></td></tr>
+<tr><td class="label">Name: </td><td><sf:input class="control"  path="name" name="name" type="text" /><br/><div class="error"><sf:errors path="email"></sf:errors></div></td></tr>
 <tr><td class="label">Email: </td><td><sf:input class="control"  path="email" name="email" type="text" /><br/><div class="error"><sf:errors path="email"></sf:errors></div></td></tr>
 <tr><td class="label">Password: </td><td><sf:input class="control" id="password" path="password" name="password" type="password" /><br/><div class="error"><sf:errors path="password"></sf:errors></div></td></tr>
 <tr><td class="label">Confirm Password: </td><td><input class="control" id="confirmPass" name="confirmpass" type="password" /><div id = "matchpass"></div></td></tr>

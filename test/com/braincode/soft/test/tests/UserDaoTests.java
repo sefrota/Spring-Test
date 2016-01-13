@@ -40,12 +40,11 @@ public class UserDaoTests {
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
 		jdbc.execute("delete from offers");
 		jdbc.execute("delete from users");
-		jdbc.execute("delete from authorities");
 	}
 	
 	@Test
 	public void testCreateUser(){
-		User user = new User("johnwayne", "hellohello", "ROLE_ADMIN", "johnny@cash.pt", true);
+		User user = new User("johnwayne", "John Wayne", "hellohello", "ROLE_ADMIN", "johnny@cash.pt", true);
 	
 		assertTrue("User creation should return true",usersDao.create(user));
 		Authentication auth = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());

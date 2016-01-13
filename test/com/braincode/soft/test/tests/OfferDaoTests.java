@@ -43,15 +43,15 @@ public class OfferDaoTests {
 		
 		jdbc.execute("delete from offers");
 		jdbc.execute("delete from users");
-		jdbc.execute("delete from authorities");
 	}
 	
 	@Test
 	public void createOffer(){
 		
-		User user = new User("johnwayne", "hellohello", "ROLE_ADMIN", "johnwayne@offers.pt", true);
-		Offer offer = new Offer(user.getUsername(), user.getEmail(), "John Wayne likes to offer");
+		User user = new User("johnwayne", "John Wayne", "hellohello", "ROLE_ADMIN", "johnwayne@offers.pt", true);
+		Offer offer = new Offer(user, "John Wayne likes to offer");
 		usersDao.create(user);
+		
 		assertTrue("The offer should be created",offersDao.create(offer));
 		
 		List<Offer> offers = offersDao.getOffers();
@@ -69,7 +69,22 @@ public class OfferDaoTests {
 		
 		assertEquals("The updated offer should match the retrieved offer", offer, updated);
 		
-		offersDao.delete(updated.getId());
+		Offer offer2 = new Offer(user, "This is a test offer 2");
+		
+		assertTrue("Offer creation should return true", offersDao.create(offer2));
+		
+		List<Offer> userOffers = offersDao.getOffer(user.getUsername());
+		
+		assertEquals("Should be 2 offers for user",2, userOffers.size());
+		
+		List<Offer> secondList = offersDao.getOffers();
+		
+		for(Offer current: secondList){
+			Offer retrieved = offersDao.getOffer(current.getId());
+			
+			assertEquals("Offer by Id should match offer from list.", current, retrieved);
+			offersDao.delete(retrieved.getId());
+		}
 		
 		List<Offer> empty = offersDao.getOffers();
 		
