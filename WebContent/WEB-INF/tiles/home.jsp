@@ -17,7 +17,9 @@
 
 			<td><c:out value="${offer.user.name}"></c:out></td>
 
-			<td><c:out value="${offer.user.email}"></c:out></td>
+			<td><a class="href-btn"
+				href="<c:url value='/message?uid=${offer.user.username}'/>"><button>Contact
+						Me!</button></a></td>
 
 			<td><c:out value="${offer.text}"></c:out></td>
 

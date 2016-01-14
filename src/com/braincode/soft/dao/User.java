@@ -1,5 +1,7 @@
 package com.braincode.soft.dao;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,25 +16,30 @@ import com.braincode.soft.validation.ValidEmail;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User implements Serializable {
 	
-	@NotBlank
-	@Size(min=8, max=15)
-	@Pattern(regexp="^\\w{8,}$")
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4045280533397958781L;
+
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=8, max=15, groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Pattern(regexp="^\\w{8,}$", groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	@Id
 	@Column(name="username")
 	private String username;
 	
-	@NotBlank
-	@Pattern(regexp="^\\S+$")
-	@Size(min=8, max=15)
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Pattern(regexp="^\\S+$", groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=8, max=15, groups={FormValidationGroup.class})
 	private String password;
 	private String authority;
-	@NotBlank
-	@Size(min=8, max=60)
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=8, max=60, groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	private String name;
 	
-	@ValidEmail
+	@ValidEmail(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	private String email;
 	private boolean enabled = false;
 
