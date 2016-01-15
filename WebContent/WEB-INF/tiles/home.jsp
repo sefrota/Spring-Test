@@ -4,48 +4,39 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 
-
 <table class="offers">
-	<tr>
-		<td>Name</td>
-		<td>Email</td>
-		<td>Offer</td>
-	</tr>
 
 	<c:forEach var="offer" items="${offers}">
 		<tr>
 
-			<td><c:out value="${offer.user.name}"></c:out></td>
+			<td class="name"><c:out value="${offer.user.name}"></c:out></td>
 
-			<td><a class="href-btn"
+			<td class="contact"><a class="href-btn"
 				href="<c:url value='/message?uid=${offer.user.username}'/>"><button>Contact
 						Me!</button></a></td>
 
-			<td><c:out value="${offer.text}"></c:out></td>
+			<td class="text"><c:out value="${offer.text}"></c:out></td>
 
 		</tr>
 	</c:forEach>
 </table>
 
-<c:choose>
-	<c:when test="${hasOffer}">
-		<p>
-			<a href="${pageContext.request.contextPath}/createoffer">Edit or
-				delete your current offer.</a>
-		</p>
-	</c:when>
-	<c:otherwise>
-		<p>
-			<a href="${pageContext.request.contextPath}/createoffer">Add a
-				new offer.</a>
-		</p>
-	</c:otherwise>
-</c:choose>
+<script type="text/javascript">
+	function updateMessageCounter(data) {
+		$("#numberMessages").text(data.number);
+	}
 
+	function onLoad() {
+		updatePage();
+		window.setInterval(updatePage, 5000);
+	}
 
-<sec:authorize access="hasRole('ROLE_ADMIN')">
-	<p>
-		<a href="<c:url value = '/admin'/>">Admin</a>
-	</p>
-</sec:authorize>
+	function updatePage(){
+		$.getJSON("<c:url value='/getmessages'/>").done(updateMessageCounter)
+		.fail(function(json) {
+			console.log(json);
+		});
+	}
 
+	$(document).ready(onLoad);
+</script>

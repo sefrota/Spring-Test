@@ -61,12 +61,23 @@ div.content{
 	padding:40px;
 }
 
+div.content.extra {
+    padding-top:0px;
+}
+
 div.header{
 	text-align: center;
 	width: 100%;
 	height: 40px;
 	position: relative;
 	background-color: red;
+}
+
+div.toolbar{
+	text-align:center;
+	width:100%;
+	position:relative;
+	top:20px;
 }
 
 a.login{
@@ -83,4 +94,19 @@ a.title{
 
 input.delete{
 	border:1px solid red
+}
+
+td.name{
+	vertical-align: top;
+	width: 100px;
+}
+
+td.contact{
+	vertical-align: top;
+	padding-left: 10px;
+}
+
+table.offers td{
+	border-bottom: 1px dashed brown;
+	padding-bottom: 5px
 }
