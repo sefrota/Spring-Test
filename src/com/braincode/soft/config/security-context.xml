@@ -34,6 +34,8 @@
 		<security:intercept-url pattern="/offercreated" access="isAuthenticated()" />
 		<security:intercept-url pattern="/offerdeleted" access="isAuthenticated()" />
 		<security:intercept-url pattern="/getMessages" access="isAuthenticated()" />
+		<security:intercept-url pattern="/messages" access="isAuthenticated()" />
+		<security:intercept-url pattern="/sendmessage" access="isAuthenticated()" />
 		<security:intercept-url pattern="/favicon.ico" access="permitAll" />
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/login" access="permitAll" />

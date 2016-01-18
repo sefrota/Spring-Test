@@ -74,10 +74,9 @@ div.header{
 }
 
 div.toolbar{
-	text-align:center;
-	width:100%;
 	position:relative;
-	top:20px;
+	padding-left:40px;
+	margin-top:10px;
 }
 
 a.login{
@@ -109,4 +108,51 @@ td.contact{
 table.offers td{
 	border-bottom: 1px dashed brown;
 	padding-bottom: 5px
+}
+
+span.subject{
+	font-size:large;
+	color:brown;
+	font-weight:bold;
+}
+
+span.messageBody{
+	display:block;
+	font-style: italic;
+}
+
+span.name{
+	font-size:medium;
+	color:brown;
+}
+
+div.message{
+	margin-bottom: 15px;
+	border-bottom: 1px dashed brown;
+}
+
+form.replyform{
+	padding:20px;
+	display:none;	
+}
+
+textarea.replyarea{
+	width:400px;
+	height:250px;
+}
+
+input.replybutton{
+	display:block;
+	font-size: large;
+	border:1px grey;
+}
+
+a.replylink:link{
+	color:brown;
+}
+
+span.alert{
+	display:block;
+	font-weight:bold;
+	color:green;
 }

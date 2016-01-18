@@ -40,5 +40,13 @@ public class HomeController {
 		System.out.println("hello from the other side");
 		return "home";
 	}
+
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static void setLogger(Logger logger) {
+		HomeController.logger = logger;
+	}
 	
 }

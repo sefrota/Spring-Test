@@ -5,11 +5,11 @@
 	uri="http://www.springframework.org/security/tags"%>
 <c:choose>
 	<c:when test="${hasOffer}">
-			<a href="${pageContext.request.contextPath}/createoffer">Edit or
+			<a href="<c:url value='/createoffer'/>">Edit or
 				delete your current offer.</a>
 	</c:when>
 	<c:otherwise>
-			<a href="${pageContext.request.contextPath}/createoffer">Add a
+			<a href="<c:url value='/createoffer'/>">Add a
 				new offer.</a>
 	</c:otherwise>
 </c:choose>
